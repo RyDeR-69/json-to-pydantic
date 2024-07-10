@@ -19,6 +19,7 @@ def convert_to_schema(input_text: str, all_optional: bool, snake_case_field: boo
         source=json.dumps(schema),
         base_class="pydantic.BaseModel",
         snake_case_field=snake_case_field,
+        force_optional_for_required_fields=all_optional,
     )
 
     return parser.parse()
